@@ -1,6 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.routers.prophet import router as prophet_router
+from app.routers.xgboost import router as xgboost_router
+app.include_router(xgboost_router)
+
 
 app = FastAPI(title="HenleysAnalytics")
 
