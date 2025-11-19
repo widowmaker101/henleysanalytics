@@ -1,0 +1,11 @@
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from app.routers.prophet import router as prophet_router
+
+app = FastAPI(title="HenleysAnalytics")
+
+app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
+app.include_router(prophet_router)
+
+@app.get("/")
+def home(): return {"message": "HenleysAnalytics API – Live"}
