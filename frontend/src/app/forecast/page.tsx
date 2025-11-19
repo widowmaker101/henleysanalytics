@@ -23,18 +23,16 @@ export default function Forecast() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-purple-950 to-slate-950 text-white p-12">
+    <div className="min-h-screen bg-slate-950 text-white p-12">
       <div className="max-w-6xl mx-auto text-center">
-        <h1 className="text-7xl font-black mb-12 bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
-          Prophet Forecast
-        </h1>
-        <input type="file" accept=".csv" onChange={e=>e.target.files&&setFile(e.target.files[0])}
+        <h1 className="text-7xl font-black mb-12 bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">Prophet Forecast</h1>
+        <input type="file" accept=".csv" onChange={e=>e.target.files&&setFile(e.target.files[0])} 
           className="file:mr-4 file:py-4 file:px-8 file:bg-cyan-500 file:text-black file:rounded-full" />
         <button onClick={run} disabled={loading} className="mx-4 px-12 py-4 bg-purple-600 rounded-full text-xl font-bold">
           {loading?"Running...":"Forecast 90 Days"}
         </button>
         {data.length>0 && (
-          <div className="mt-12 bg-slate-900/80 backdrop-blur rounded-3xl p-8">
+          <div className="mt-12">
             <ResponsiveContainer width="100%" height={500}>
               <LineChart data={data}>
                 <CartesianGrid strokeDasharray="3 3" />
