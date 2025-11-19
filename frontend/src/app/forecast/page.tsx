@@ -12,7 +12,7 @@ export default function Forecast() {
     if (!file) return;
     setLoading(true);
     const fd = new FormData(); fd.append("file", file);
-    const res = await axios.post("http://localhost:8001/prophet/forecast", fd);
+    const res = await axios.post("https://henleysanalytics-backend.onrender.com/prophet/forecast", fd);
     setData(res.data.forecast.map((r:any) => ({
       date: new Date(r.ds).toLocaleDateString(),
       forecast: Math.round(r.yhat),
