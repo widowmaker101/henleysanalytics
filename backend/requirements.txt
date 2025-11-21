@@ -1,8 +1,9 @@
-fastapi==0.104.1
-uvicorn[standard]==0.24.0
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+pandas==2.2.3  # Fixed for Python 3.13 _PyLong_AsByteArray bug
 prophet==1.1.5
-pandas==2.1.4
-python-multipart==0.0.6
-xgboost==2.0.3
-scikit-learn==1.3.2
-cmdstanpy==1.2.0  # Prophet dep for Linux
+cmdstanpy==1.2.4
+python-multipart==0.0.9
+xgboost==1.7.6  # Stable for Linux, avoids build issues
+scikit-learn==1.5.2
+requests==2.32.3
