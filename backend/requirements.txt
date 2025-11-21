@@ -1,9 +1,10 @@
+numpy==2.1.1  
+pandas==2.2.3  
 fastapi==0.115.0
 uvicorn[standard]==0.30.6
-pandas==2.2.3  # Fixed for Python 3.13 _PyLong_AsByteArray bug
 prophet==1.1.5
 cmdstanpy==1.2.4
 python-multipart==0.0.9
-xgboost==1.7.6  # Stable for Linux, avoids build issues
+xgboost==2.1.1 
 scikit-learn==1.5.2
 requests==2.32.3
