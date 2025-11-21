@@ -8,6 +8,13 @@ export default function Home() {
         <p className="text-2xl mt-8">Every predictive model. One platform.</p>
         <Link href="/forecast" className="mt-12 inline-block px-16 py-6 bg-cyan-500 hover:bg-cyan-400 text-black text-2xl font-bold rounded-2xl">
           Launch Prophet Forecast
+          <Link href="/xgboost" className="mt-6 inline-block px-16 py-6 bg-gradient-to-r from-orange-500 to-pink-500 text-black text-2xl font-bold rounded-2xl">
+            Launch XGBoost
+          </Link>
+          <Link href="/llama" className="mt-6 inline-block px-16 py-6 bg-gradient-to-r from-emerald-500 to-cyan-500 text-black text-2xl font-bold rounded-2xl">
+            Talk to Your Data (Llama-3)
+          </Link>
+
         </Link>
       </div>
     </main>
