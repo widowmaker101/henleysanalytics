@@ -1,3 +1,7 @@
+import os, sys
+sys.path.insert(0, os.path.dirname(__file__))
+try: import numpy_shim
+except: pass
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.routers.prophet import router as prophet_router
