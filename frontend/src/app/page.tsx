@@ -1,3 +1,5 @@
+"use client";  // ← THIS FIXES THE PRERENDER ERROR
+
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 
@@ -25,7 +27,6 @@ export default function Home() {
           transition={{ duration: 1 }}
           className="text-center max-w-6xl w-full"
         >
-          {/* Title - scales perfectly on mobile */}
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -53,36 +54,23 @@ export default function Home() {
             Prophet • XGBoost • Llama-3 70B — All in one platform. No code. No limits.
           </motion.p>
 
-          {/* Mobile-friendly button stack */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1 }}
             className="mt-12 sm:mt-16 flex flex-col items-center gap-6 sm:gap-8 w-full max-w-md mx-auto"
           >
-            <Link 
-              href="/forecast" 
-              className="w-full px-10 py-6 sm:px-16 sm:py-7 bg-cyan-500 hover:bg-cyan-400 text-black text-xl sm:text-2xl lg:text-3xl font-black rounded-3xl transition transform hover:scale-105 shadow-2xl active:scale-95"
-            >
+            <Link href="/forecast" className="w-full px-10 py-6 sm:px-16 sm:py-7 bg-cyan-500 hover:bg-cyan-400 text-black text-xl sm:text-2xl lg:text-3xl font-black rounded-3xl transition transform hover:scale-105 shadow-2xl active:scale-95">
               Launch Prophet Forecast
             </Link>
-
-            <Link 
-              href="/xgboost" 
-              className="w-full px-10 py-6 sm:px-16 sm:py-7 bg-gradient-to-r from-orange-500 to-pink-600 text-black text-xl sm:text-2xl lg:text-3xl font-black rounded-3xl transition transform hover:scale-105 shadow-2xl active:scale-95"
-            >
+            <Link href="/xgboost" className="w-full px-10 py-6 sm:px-16 sm:py-7 bg-gradient-to-r from-orange-500 to-pink-600 text-black text-xl sm:text-2xl lg:text-3xl font-black rounded-3xl transition transform hover:scale-105 shadow-2xl active:scale-95">
               Launch XGBoost Lab
             </Link>
-
-            <Link 
-              href="/llama" 
-              className="w-full px-10 py-6 sm:px-16 sm:py-7 bg-gradient-to-r from-emerald-500 to-cyan-500 text-black text-xl sm:text-2xl lg:text-3xl font-black rounded-3xl transition transform hover:scale-105 shadow-2xl active:scale-95"
-            >
+            <Link href="/llama" className="w-full px-10 py-6 sm:px-16 sm:py-7 bg-gradient-to-r from-emerald-500 to-cyan-500 text-black text-xl sm:text-2xl lg:text-3xl font-black rounded-3xl transition transform hover:scale-105 shadow-2xl active:scale-95">
               Talk to Your Data (Llama-3)
             </Link>
           </motion.div>
 
-          {/* Mobile footer tag */}
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
