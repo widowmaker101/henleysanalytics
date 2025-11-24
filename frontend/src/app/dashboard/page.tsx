@@ -1,0 +1,1 @@
+'use client'; import { useRouter } from 'next/navigation'; import { useEffect } from 'react'; export default function Dashboard() { const router = useRouter(); useEffect(() => { router.push('/forecast'); }, []); return <div className="min-h-screen bg-black flex items-center justify-center"><p className="text-4xl text-white">Redirecting to your analytics suite...</p></div>; }
