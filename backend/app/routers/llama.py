@@ -29,23 +29,15 @@ async def insights(file: UploadFile):
             "model": "llama3-70b-8192",
             "messages": [{"role": "user", "content": prompt}],
             "temperature": 0.3,
-            "max_tokens": 300  # Reduced to avoid free tier limits
+            "max_tokens": 200  # Reduced to avoid free tier limits
         }
-
-        print(f"Request payload: {json.dumps(payload, indent=2)}")  # Debug log
-        print(f"Headers: {HEADERS}")  # Debug log
 
         resp = requests.post(GROQ_URL, json=payload, headers=HEADERS, timeout=60)
         resp.raise_for_status()
-        
         response_data = resp.json()
-        print(f"Groq response status: {resp.status_code}")  # Debug log
-        
         return {"insights": response_data["choices"][0]["message"]["content"]}
     except requests.exceptions.HTTPError as e:
         error_detail = e.response.text if e.response else str(e)
-        print(f"Groq HTTP error: {error_detail}")  # Debug log
-        raise HTTPException(status_code=500, detail=f"Groq API error: {error_detail}")
+        return {"error": f"Groq API error: {error_detail} — Check your key at console.groq.com/keys"}
     except Exception as e:
-        print(f"Unexpected error: {str(e)}")  # Debug log
-        raise HTTPException(status_code=500, detail=f"Error processing data: {str(e)}")
+        return {"error": f"Error processing data: {str(e)}"}
